@@ -1,5 +1,8 @@
 import { Router } from 'express';
 
-const authRoute = Router();
+function getAuthRoutes() {
+  const authRouter = Router();
+  return authRouter;
+}
 
-export default authRoute;
+export default getAuthRoutes;
