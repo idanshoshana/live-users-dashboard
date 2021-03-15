@@ -5,7 +5,7 @@
   "main": "api/index.js",
   "type": "module",
   "scripts": {
-    "lint": "eslint --ext .js",
+    "lint": "eslint --ext .js /api --fix",
     "dev": "nodemon"
   },
   "keywords": [],
