@@ -2,10 +2,11 @@
   "name": "live-users-dashboard-server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "api/index.js",
   "type": "module",
   "scripts": {
-    "lint": "eslint --ext .js"
+    "lint": "eslint --ext .js",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "Idan Shoshana",
@@ -16,6 +17,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
   },
   "dependencies": {
