@@ -25,24 +25,44 @@ class UserRepository {
   }
 
   async validateUserIsValid({ username, password }) {
-    const user = await User.findOne({ username });
-    if (user && user.password === (await hash(password, user.salt))) {
-      return user;
+    try {
+      const user = await User.findOne({ username });
+      if (user && user.password === (await hash(password, user.salt))) {
+        return user;
+      }
+      return null;
+    } catch (err) {
+      throw new InternalServerError();
     }
-    return null;
   }
 
   async createPost(userId, { title, content }) {
-    const user = await User.findByIdAndUpdate(
-      userId,
-      {
-        $push: { posts: [{ title, content }] },
-      },
-      { new: true }
-    );
+    let user;
+    try {
+      user = await User.findByIdAndUpdate(
+        userId,
+        {
+          $push: { posts: [{ title, content }] },
+        },
+        { new: true }
+      );
+    } catch (err) {
+      throw new InternalServerError();
+    }
 
     if (!user) throw new UserNotFoundError('User does not exist');
     return user.posts[user.posts.length - 1];
+  }
+
+  async getPostsByUser(userId) {
+    let user;
+    try {
+      user = await User.findOne({ _id: userId });
+    } catch (err) {
+      throw new InternalServerError();
+    }
+    if (!user) throw new UserNotFoundError('User does not exist');
+    return user.posts;
   }
 }
 
