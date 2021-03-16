@@ -15,3 +15,14 @@ export async function createPost(req, res, next) {
     next(err);
   }
 }
+
+export async function getPostsByUser(req, res, next) {
+  const { userId } = req.params;
+
+  try {
+    const posts = await userService.getPostsByUser(userId);
+    res.status(200).json(posts);
+  } catch (err) {
+    next(err);
+  }
+}
