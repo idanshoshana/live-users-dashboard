@@ -3,7 +3,9 @@ class AuthService {
     this.userRepository = userRepository;
   }
 
-  async signUp({ username, password }) {}
+  async signUp({ username, password }) {
+    return this.userRepository.signUp({ username, password });
+  }
 
   async signIn({ username, password }) {}
 }
