@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import { genSalt, hash } from 'bcrypt';
 import User from '../models/user.model.js';
 import { ConflictError, InternalServerError } from '../utils/errors.js';
@@ -18,6 +17,14 @@ class UserRepository {
       }
       throw new InternalServerError();
     }
+  }
+
+  async validateUserIsValid({ username, password }) {
+    const user = await User.findOne({ username });
+    if (user && user.password === (await hash(password, user.salt))) {
+      return user;
+    }
+    return null;
   }
 }
 
