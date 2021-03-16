@@ -8,7 +8,7 @@ function getAuthRoutes() {
 
   authRouter.post(
     '/signup',
-    body('username').isLength({ min: 5 }),
+    body('username').matches(/^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{2,29}$/, 'i'),
     body('password').matches(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
       'i'
@@ -19,7 +19,7 @@ function getAuthRoutes() {
 
   authRouter.post(
     '/login',
-    body('username').isLength({ min: 5 }),
+    body('username').matches(/^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{2,29}$/, 'i'),
     body('password').matches(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
       'i'
