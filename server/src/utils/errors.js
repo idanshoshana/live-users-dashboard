@@ -23,3 +23,9 @@ export class UnauthorizedError extends ResponseError {
     super(message, 'UnauthorizedError', 401);
   }
 }
+
+export class UserNotFoundError extends ResponseError {
+  constructor(message) {
+    super(message, 'UserNotFoundError', 404);
+  }
+}
