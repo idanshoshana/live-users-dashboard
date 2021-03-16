@@ -1,6 +1,11 @@
 import { genSalt, hash } from 'bcrypt';
+import { json } from 'express';
 import User from '../models/user.model.js';
-import { ConflictError, InternalServerError } from '../utils/errors.js';
+import {
+  ConflictError,
+  InternalServerError,
+  UserNotFoundError,
+} from '../utils/errors.js';
 
 class UserRepository {
   async signUp({ username, password }) {
@@ -25,6 +30,19 @@ class UserRepository {
       return user;
     }
     return null;
+  }
+
+  async createPost(userId, { title, content }) {
+    const user = await User.findByIdAndUpdate(
+      userId,
+      {
+        $push: { posts: [{ title, content }] },
+      },
+      { new: true }
+    );
+
+    if (!user) throw new UserNotFoundError('User does not exist');
+    return user.posts[user.posts.length - 1];
   }
 }
 
