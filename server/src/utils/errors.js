@@ -17,3 +17,9 @@ export class InternalServerError extends ResponseError {
     super(message, 'InternalServerError', 500);
   }
 }
+
+export class UnauthorizedError extends ResponseError {
+  constructor(message) {
+    super(message, 'UnauthorizedError', 401);
+  }
+}
