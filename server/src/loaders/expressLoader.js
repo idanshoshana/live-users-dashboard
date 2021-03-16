@@ -11,9 +11,8 @@ export default (expressApp) => {
 
   expressApp.use('/api', getRoutes());
 
-  expressApp.use((err, req, res) => {
-    res.status(err.status || 500);
-    res.json({
+  expressApp.use((err, req, res, next) => {
+    res.status(err.code || err.status || 500).json({
       message: err.message,
     });
   });
