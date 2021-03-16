@@ -2,7 +2,7 @@
   "name": "live-users-dashboard-server",
   "version": "1.0.0",
   "description": "",
-  "main": "api/index.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
     "lint": "eslint --ext .js /api --fix",
