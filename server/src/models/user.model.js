@@ -11,13 +11,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       unique: false,
       required: true,
-      select: false,
     },
     salt: {
       type: String,
       unique: false,
       required: true,
-      select: false,
     },
     posts: [{ title: String, content: String }],
   },
