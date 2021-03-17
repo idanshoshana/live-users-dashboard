@@ -31,6 +31,8 @@ export const CancelButton = styled.button`
   background-color: #fbc9a8;
   width: 30px;
   height: 30px;
+  border: 0;
+  outline: none;
   cursor: pointer;
 
   &:focus,
