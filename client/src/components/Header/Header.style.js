@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid #edeff1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 10px;
 `;
 
 export const Title = styled.h1`
