@@ -1,4 +1,4 @@
-import { Title, Wrapper } from './Header.style';
+import { Title, Wrapper } from './header.style';
 
 const Header = () => {
   return (
