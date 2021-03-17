@@ -4,7 +4,7 @@ import Modal from '../modal';
 const CreatePostModal = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
-      <CreatePostForm />
+      <CreatePostForm onFinish={onClose} />
     </Modal>
   );
 };

@@ -32,7 +32,7 @@ const Dashboard = () => {
     <>
       <Header />
       <Wrapper>
-        <Title>{username}</Title>
+        <Title>Welcome {username}!</Title>
         <Button onClick={() => setCreatePostDialogOpened(true)}>
           New Post
         </Button>
