@@ -21,7 +21,7 @@ const BasicForm = ({ title, onSubmit }) => {
           <Input
             name="username"
             type="text"
-            placeholder="Choose a user name"
+            placeholder="Username"
             ref={register({
               required: 'Please fill out this field',
               pattern: {
@@ -36,7 +36,7 @@ const BasicForm = ({ title, onSubmit }) => {
           <Input
             name="password"
             type="password"
-            placeholder="Create a password"
+            placeholder="Password"
             ref={register({
               required: 'Please fill out this field',
               pattern: {

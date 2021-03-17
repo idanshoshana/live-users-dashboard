@@ -17,7 +17,7 @@ const LoginForm = () => {
       dispatch(loginSuccess(username));
       history.push('/dashboard');
     } catch (err) {
-      setError('Invalid credentials');
+      setError('Error occurred, Please try again.');
     }
   };
 
