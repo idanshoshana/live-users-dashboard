@@ -6,7 +6,6 @@ const Posts = ({ posts }) => {
     <Wrapper>
       <Header>
         <Title>Posts</Title>
-        <Button>New</Button>
       </Header>
       {!posts.length && <span>Not found posts, Create one!</span>}
       {posts.map(({ title, content }) => {

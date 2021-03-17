@@ -21,3 +21,22 @@ export const Wrapper = styled.div`
   text-align: center;
   padding: 20px;
 `;
+
+export const CancelButton = styled.button`
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #fbc9a8;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  &:focus,
+  &:active,
+  &:hover {
+    background-color: #ffffff;
+    color: #fbc9a8;
+  }
+`;

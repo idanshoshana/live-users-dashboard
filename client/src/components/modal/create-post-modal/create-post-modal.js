@@ -1,9 +1,9 @@
 import CreatePostForm from '../../create-post-form';
 import Modal from '../modal';
 
-const CreatePostModal = () => {
+const CreatePostModal = ({ onClose }) => {
   return (
-    <Modal>
+    <Modal onClose={onClose}>
       <CreatePostForm />
     </Modal>
   );

@@ -1,9 +1,9 @@
 import LoginForm from '../../login-form';
 import Modal from '../modal';
 
-const LoginModal = () => {
+const LoginModal = ({ onClose }) => {
   return (
-    <Modal>
+    <Modal onClose={onClose}>
       <LoginForm />
     </Modal>
   );

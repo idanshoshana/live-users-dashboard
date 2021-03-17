@@ -1,9 +1,9 @@
 import SignUpForm from '../../sign-up-form';
 import Modal from '../modal';
 
-const SignUpModal = () => {
+const SignUpModal = ({ onClose }) => {
   return (
-    <Modal>
+    <Modal onClose={onClose}>
       <SignUpForm />
     </Modal>
   );

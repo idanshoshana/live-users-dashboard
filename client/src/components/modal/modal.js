@@ -1,11 +1,14 @@
 import Portal from '../portal';
-import { BackDrop, Wrapper } from './modal.style';
+import { BackDrop, Wrapper, CancelButton } from './modal.style';
 
-const Modal = ({ children }) => {
+const Modal = ({ children, onClose }) => {
   return (
     <Portal>
       <BackDrop>
-        <Wrapper>{children}</Wrapper>
+        <Wrapper>
+          <CancelButton onClick={onClose}>X</CancelButton>
+          {children}
+        </Wrapper>
       </BackDrop>
     </Portal>
   );
