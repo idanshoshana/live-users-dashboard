@@ -1,4 +1,8 @@
 import { useForm } from 'react-hook-form';
+import { useAuthContext } from '../../store/auth/auth.context';
+import { addPost } from '../../store/dashboard/dashboard.actions';
+import { useDashboardContext } from '../../store/dashboard/dashboard.context';
+import { createPostRequest } from '../../utils/dashboardRequests';
 import {
   Wrapper,
   Form,
@@ -9,12 +13,23 @@ import {
   TextArea,
 } from './create-post-form.style';
 
-const CreatePostForm = () => {
+const CreatePostForm = ({ onFinish }) => {
+  const {
+    auth: { token },
+  } = useAuthContext();
+  const { dispatch } = useDashboardContext();
+
   const { handleSubmit, register, errors } = useForm({
     criteriaMode: 'firstError',
   });
 
-  const onSubmit = (values) => {};
+  const onSubmit = async ({ title, content }) => {
+    if (token) {
+      const post = await createPostRequest(token, { title, content });
+      dispatch(addPost(post));
+      onFinish();
+    }
+  };
 
   return (
     <Wrapper>
