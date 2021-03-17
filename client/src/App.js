@@ -1,10 +1,13 @@
-import Header from './components/header';
-
+import Router from './router';
+import { AuthProvider } from './store/auth/auth.context';
+import { DashboardProvider } from './store/dashboard/dashboard.context';
 const App = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <AuthProvider>
+      <DashboardProvider>
+        <Router />
+      </DashboardProvider>
+    </AuthProvider>
   );
 };
 
