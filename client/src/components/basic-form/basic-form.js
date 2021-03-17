@@ -24,6 +24,10 @@ const BasicForm = ({ title, onSubmit }) => {
             placeholder="Choose a user name"
             ref={register({
               required: 'Please fill out this field',
+              pattern: {
+                value: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{2,29}$/i,
+                message: 'Invalid username',
+              },
             })}
           />
           {errors.username && <span>{errors.username.message}</span>}
