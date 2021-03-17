@@ -10,8 +10,8 @@ function getAuthRoutes() {
     '/signup',
     body('username').matches(/^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{2,29}$/, 'i'),
     body('password').matches(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
-      'i'
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+      'gm'
     ),
     validationRequest,
     signUp
@@ -21,8 +21,8 @@ function getAuthRoutes() {
     '/login',
     body('username').matches(/^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{2,29}$/, 'i'),
     body('password').matches(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
-      'i'
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+      'gm'
     ),
     validationRequest,
     signIn
