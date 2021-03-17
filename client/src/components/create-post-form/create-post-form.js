@@ -42,6 +42,7 @@ const CreatePostForm = ({ onFinish }) => {
             placeholder="Title"
             ref={register({
               required: 'Please fill out this field',
+              minLength: { value: 2, message: 'Title is too short' },
             })}
           />
           {errors.title && <span>{errors.title.message}</span>}

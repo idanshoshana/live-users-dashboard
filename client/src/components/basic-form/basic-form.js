@@ -40,7 +40,7 @@ const BasicForm = ({ title, onSubmit }) => {
             ref={register({
               required: 'Please fill out this field',
               pattern: {
-                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/i,
+                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
                 message: 'Very weak password',
               },
             })}
