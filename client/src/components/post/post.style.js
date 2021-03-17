@@ -11,6 +11,4 @@ export const Title = styled.h3`
   margin: 0;
 `;
 
-export const Content = styled.p`
-  color: #47597b;
-`;
+export const Content = styled.p``;

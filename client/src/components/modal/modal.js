@@ -6,7 +6,7 @@ const Modal = ({ children, onClose }) => {
     <Portal>
       <BackDrop>
         <Wrapper>
-          <CancelButton onClick={onClose}>X</CancelButton>
+          <CancelButton onClick={onClose}>✖</CancelButton>
           {children}
         </Wrapper>
       </BackDrop>

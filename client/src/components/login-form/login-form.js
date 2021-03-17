@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { loginSuccess, updateToken } from '../../store/auth/auth.actions';
 import { useHistory } from 'react-router-dom';
 import { useAuthContext } from '../../store/auth/auth.context';
@@ -7,15 +8,25 @@ import BasicForm from '../basic-form';
 const LoginForm = () => {
   const history = useHistory();
   const { dispatch } = useAuthContext();
+  const [error, setError] = useState('');
 
   const login = async ({ username, password }) => {
-    const { accessToken } = await loginRequest({ username, password });
-    dispatch(updateToken(accessToken));
-    dispatch(loginSuccess(username));
-    history.push('/dashboard');
+    try {
+      const { accessToken } = await loginRequest({ username, password });
+      dispatch(updateToken(accessToken));
+      dispatch(loginSuccess(username));
+      history.push('/dashboard');
+    } catch (err) {
+      setError('Invalid credentials');
+    }
   };
 
-  return <BasicForm title={'Login'} onSubmit={login} />;
+  return (
+    <>
+      <BasicForm title={'Login'} onSubmit={login} />
+      {error && <span>{error}</span>}
+    </>
+  );
 };
 
 export default LoginForm;
