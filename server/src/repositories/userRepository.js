@@ -50,7 +50,7 @@ class UserRepository {
     }
 
     if (!user) throw new UserNotFoundError('User does not exist');
-    return user.posts[user.posts.length - 1];
+    return user.posts[user.posts.length - 1].toObject();
   }
 
   async getPostsByUser(userId) {

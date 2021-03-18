@@ -1,17 +1,19 @@
 const express = require('express');
 const runLoaders = require('./loaders');
 
-async function startServer() {
-  const app = express();
+const app = express();
 
-  await runLoaders(app);
+const startServer = new Promise((res, rej) => {
+    runLoaders(app).then(() => {
+      const port = process.env.PORT || 8080;
+      app.listen(port, () => {
+        console.log(`Server is listening on port ${port}`);
+        res();
+      });
+    });
+});
 
-  const port = process.env.PORT || 8080;
-  app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-  });
-
-  return app;
+module.exports = { 
+  startServer,
+  app
 }
-
-module.exports = startServer();
