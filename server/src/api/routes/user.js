@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import { body } from 'express-validator';
-import { createPost, getPostsByUser } from '../controllers/user.js';
-import verifyToken from './middlewares/verifyToken.js';
-import validationRequest from './middlewares/validationRequest.js';
+const { Router } = require('express');
+const { body } = require('express-validator');
+const { createPost, getPostsByUser } = require('../controllers/user');
+const verifyToken = require('./middlewares/verifyToken');
+const validationRequest = require('./middlewares/validationRequest');
 
 function getUserRoutes() {
   const userRouter = Router();
@@ -19,4 +19,4 @@ function getUserRoutes() {
   return userRouter;
 }
 
-export default getUserRoutes;
+module.exports = getUserRoutes;

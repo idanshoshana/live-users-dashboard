@@ -1,10 +1,10 @@
-import UserRepository from '../../repositories/userRepository.js';
-import UserService from '../../services/userService.js';
+const UserRepository = require('../../repositories/userRepository');
+const UserService = require('../../services/userService');
 
 const userRepository = new UserRepository();
 const userService = new UserService(userRepository);
 
-export async function createPost(req, res, next) {
+async function createPost(req, res, next) {
   const { userId } = req.params;
   const { title, content } = req.body;
 
@@ -16,7 +16,7 @@ export async function createPost(req, res, next) {
   }
 }
 
-export async function getPostsByUser(req, res, next) {
+async function getPostsByUser(req, res, next) {
   const { userId } = req.params;
 
   try {
@@ -25,4 +25,9 @@ export async function getPostsByUser(req, res, next) {
   } catch (err) {
     next(err);
   }
+}
+
+module.exports = {
+  createPost,
+  getPostsByUser
 }

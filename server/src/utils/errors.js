@@ -1,4 +1,4 @@
-export class ResponseError extends Error {
+class ResponseError extends Error {
   constructor(message, name, code) {
     super(message);
     this.name = name;
@@ -6,26 +6,34 @@ export class ResponseError extends Error {
   }
 }
 
-export class ConflictError extends ResponseError {
+class ConflictError extends ResponseError {
   constructor(message) {
     super(message, 'ConflictError', 409);
   }
 }
 
-export class InternalServerError extends ResponseError {
+class InternalServerError extends ResponseError {
   constructor(message) {
     super(message, 'InternalServerError', 500);
   }
 }
 
-export class UnauthorizedError extends ResponseError {
+class UnauthorizedError extends ResponseError {
   constructor(message) {
     super(message, 'UnauthorizedError', 401);
   }
 }
 
-export class UserNotFoundError extends ResponseError {
+class UserNotFoundError extends ResponseError {
   constructor(message) {
     super(message, 'UserNotFoundError', 404);
   }
+}
+
+module.exports = {
+  ResponseError,
+  ConflictError,
+  InternalServerError,
+  UnauthorizedError,
+  UserNotFoundError
 }

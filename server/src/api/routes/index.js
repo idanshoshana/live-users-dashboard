@@ -1,6 +1,6 @@
-import express from 'express';
-import getAuthRoutes from './auth.js';
-import getUserRoutes from './user.js';
+const express = require('express');
+const getAuthRoutes = require('./auth.js');
+const getUserRoutes = require('./user.js');
 
 function getRoutes() {
   const router = express.Router();
@@ -9,4 +9,4 @@ function getRoutes() {
   return router;
 }
 
-export default getRoutes;
+module.exports = getRoutes;

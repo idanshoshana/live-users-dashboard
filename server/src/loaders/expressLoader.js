@@ -1,11 +1,11 @@
-import express, { json } from 'express';
-import cors from 'cors';
-import getRoutes from '../api/routes/index.js';
+const express = require('express');
+const cors = require('cors');
+const getRoutes = require('../api/routes/index.js');
 
-export default (expressApp) => {
+module.exports = (expressApp) => {
   expressApp.use(cors());
 
-  expressApp.use(json());
+  expressApp.use(express.json());
 
   expressApp.use(express.urlencoded({ extended: true }));
 

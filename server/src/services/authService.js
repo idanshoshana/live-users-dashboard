@@ -1,5 +1,5 @@
-import { UnauthorizedError } from '../utils/errors.js';
-import jwt from 'jsonwebtoken';
+const { UnauthorizedError } = require('../utils/errors.js');
+const jwt = require('jsonwebtoken');
 
 class AuthService {
   constructor(userRepository) {
@@ -30,4 +30,4 @@ class AuthService {
   }
 }
 
-export default AuthService;
+module.exports = AuthService;

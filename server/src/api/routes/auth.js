@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import { body } from 'express-validator';
-import { signIn, signUp } from '../controllers/auth.js';
-import validationRequest from './middlewares/validationRequest.js';
+const { Router } = require('express');
+const { body } = require('express-validator');
+const { signIn, signUp } = require('../controllers/auth.js');
+const validationRequest = require('./middlewares/validationRequest.js');
 
 function getAuthRoutes() {
   const authRouter = Router();
@@ -31,4 +31,4 @@ function getAuthRoutes() {
   return authRouter;
 }
 
-export default getAuthRoutes;
+module.exports = getAuthRoutes;

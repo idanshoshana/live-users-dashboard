@@ -1,10 +1,10 @@
-import UserRepository from '../../repositories/userRepository.js';
-import AuthService from '../../services/authService.js';
+const UserRepository = require('../../repositories/userRepository');
+const AuthService = require('../../services/authService.js');
 
 const userRepository = new UserRepository();
 const authService = new AuthService(userRepository);
 
-export async function signUp(req, res, next) {
+async function signUp(req, res, next) {
   const { username, password } = req.body;
   try {
     await authService.signUp({ username, password });
@@ -14,7 +14,7 @@ export async function signUp(req, res, next) {
   }
 }
 
-export async function signIn(req, res, next) {
+async function signIn(req, res, next) {
   const { username, password } = req.body;
   try {
     const accessToken = await authService.signIn({ username, password });
@@ -24,4 +24,9 @@ export async function signIn(req, res, next) {
   } catch (err) {
     return next(err);
   }
+}
+
+module.exports = {
+  signUp,
+  signIn
 }

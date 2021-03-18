@@ -1,5 +1,5 @@
-import express from 'express';
-import runLoaders from './loaders/index.js';
+const express = require('express');
+const runLoaders = require('./loaders');
 
 async function startServer() {
   const app = express();
@@ -10,6 +10,8 @@ async function startServer() {
   app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
   });
+
+  return app;
 }
 
-startServer();
+module.exports = startServer();

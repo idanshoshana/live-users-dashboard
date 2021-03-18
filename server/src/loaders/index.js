@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
-import expressLoader from './expressLoader.js';
-import dbLoader from './dbLoader.js';
+const dotenv = require('dotenv');
+const expressLoader = require('./expressLoader');
+const dbLoader = require('./dbLoader');
 
-export default async (app) => {
+module.exports = async (app) => {
   dotenv.config();
   await dbLoader();
   expressLoader(app);

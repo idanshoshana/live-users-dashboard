@@ -1,10 +1,10 @@
-import { genSalt, hash } from 'bcrypt';
-import User from '../models/user.model.js';
-import {
+const { genSalt, hash } = require('bcrypt');
+const User = require('../models/user.model');
+const {
   ConflictError,
   InternalServerError,
   UserNotFoundError,
-} from '../utils/errors.js';
+} = require ('../utils/errors');
 
 class UserRepository {
   async signUp({ username, password }) {
@@ -65,4 +65,4 @@ class UserRepository {
   }
 }
 
-export default UserRepository;
+module.exports = UserRepository;

@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
-import { UnauthorizedError } from '../../../utils/errors.js';
+const jwt = require('jsonwebtoken');
+const { UnauthorizedError } = require('../../../utils/errors');
 
-export default function verifyToken(req, res, next) {
+module.exports = function verifyToken(req, res, next) {
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(' ')[1];
 
