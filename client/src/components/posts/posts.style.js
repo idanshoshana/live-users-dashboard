@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   width: 80%;
   border-radius: 3px;
   padding: 10px;
+  margin: 10px;
 `;
 
 export const Header = styled.div`
