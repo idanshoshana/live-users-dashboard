@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { loginSuccess, updateToken } from '../../store/auth/auth.actions';
-import { useAuthContext } from '../../store/auth/auth.context';
-import { signUpRequest, loginRequest } from '../../utils/authRequests';
+import { loginSuccess, updateToken } from '../../../store/auth/auth.actions';
+import { useAuthContext } from '../../../store/auth/auth.context';
+import { signUpRequest, loginRequest } from '../../../utils/authRequests';
 import BasicForm from '../basic-form';
 
 const SignUpForm = () => {

@@ -1,4 +1,4 @@
-import LoginForm from '../../login-form';
+import LoginForm from '../../forms/login-form';
 import Modal from '../modal';
 
 const LoginModal = ({ onClose }) => {

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { loginSuccess, updateToken } from '../../store/auth/auth.actions';
+import { loginSuccess, updateToken } from '../../../store/auth/auth.actions';
 import { useHistory } from 'react-router-dom';
-import { useAuthContext } from '../../store/auth/auth.context';
-import { loginRequest } from '../../utils/authRequests';
+import { useAuthContext } from '../../../store/auth/auth.context';
+import { loginRequest } from '../../../utils/authRequests';
 import BasicForm from '../basic-form';
 
 const LoginForm = () => {
@@ -17,7 +17,7 @@ const LoginForm = () => {
       dispatch(loginSuccess(username));
       history.push('/dashboard');
     } catch (err) {
-      setError('Error occurred, Please try again.');
+      setError('Error occurred, please try again.');
     }
   };
 

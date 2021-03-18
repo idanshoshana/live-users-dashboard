@@ -1,4 +1,4 @@
-import SignUpForm from '../../sign-up-form';
+import SignUpForm from '../../forms/sign-up-form';
 import Modal from '../modal';
 
 const SignUpModal = ({ onClose }) => {
