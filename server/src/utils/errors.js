@@ -35,5 +35,5 @@ module.exports = {
   ConflictError,
   InternalServerError,
   UnauthorizedError,
-  UserNotFoundError
-}
+  UserNotFoundError,
+};

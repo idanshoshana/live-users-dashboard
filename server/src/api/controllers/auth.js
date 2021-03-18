@@ -28,5 +28,5 @@ async function signIn(req, res, next) {
 
 module.exports = {
   signUp,
-  signIn
-}
+  signIn,
+};

@@ -29,5 +29,5 @@ async function getPostsByUser(req, res, next) {
 
 module.exports = {
   createPost,
-  getPostsByUser
-}
+  getPostsByUser,
+};

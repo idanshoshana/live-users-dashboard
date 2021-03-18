@@ -15,4 +15,4 @@ module.exports = function verifyToken(req, res, next) {
   }
 
   throw new UnauthorizedError('Token is invalid');
-}
+};

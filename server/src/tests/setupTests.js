@@ -1,5 +1,5 @@
-const { startServer }  = require('../app');
+const { startServer } = require('../app');
 
 beforeAll(async () => {
-    await startServer;
-})
+  await startServer;
+});

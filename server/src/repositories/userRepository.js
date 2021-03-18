@@ -4,7 +4,7 @@ const {
   ConflictError,
   InternalServerError,
   UserNotFoundError,
-} = require ('../utils/errors');
+} = require('../utils/errors');
 
 class UserRepository {
   async signUp({ username, password }) {
